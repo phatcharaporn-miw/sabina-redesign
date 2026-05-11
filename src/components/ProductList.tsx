@@ -28,25 +28,26 @@ const PAGE_SIZE = 8;
 
 export default function ProductListingPage() {
   const [filters, setFilters] = useState<FilterState>(DEFAULT_FILTERS);
-  const [sort, setSort] = useState("Newest");
+  const [sort, setSort] = useState("ใหม่ล่าสุด");
   const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
   const [filterOpen, setFilterOpen] = useState(false);
 
   const sorted = useMemo(() => {
-    const list = [...PRODUCTS];
-    switch (sort) {
-      case "ราคา: ต่ำสุด - สูงสุด":
-        return list.sort(
-          (a, b) => (a.salePrice ?? a.price) - (b.salePrice ?? b.price),
-        );
-      case "ราคา: สูงสุด - ต่ำสุด":
-        return list.sort(
-          (a, b) => (b.salePrice ?? b.price) - (a.salePrice ?? a.price),
-        );
-      default:
-        return list;
-    }
-  }, [sort]);
+  const list = [...PRODUCTS];
+  switch (sort) {
+    case "ชื่อ ก-ฮ":
+      return list.sort((a, b) => a.name.localeCompare(b.name, "th"));
+    case "ชื่อ ฮ-ก":
+      return list.sort((a, b) => b.name.localeCompare(a.name, "th"));
+    case "ราคา: ต่ำสุด - สูงสุด":
+      return list.sort((a, b) => (a.salePrice ?? a.price) - (b.salePrice ?? b.price));
+    case "ราคา: สูงสุด - ต่ำสุด":
+      return list.sort((a, b) => (b.salePrice ?? b.price) - (a.salePrice ?? a.price));
+    case "นิยมมากที่สุด":
+    default:
+      return list;
+  }
+}, [sort]);
 
   const visible = sorted.slice(0, visibleCount);
   const hasMore = visibleCount < sorted.length;

@@ -97,7 +97,7 @@ export default function FilterSidebar({
       priceMax: 1890,
     });
 
-  const sidebarClass = drawer ? "w-full px-4 py-6" : "py-9"; //                                                                      ^^^^ ปรับตาม navbar จริง (TopBar 40px + Navbar 80px = 120px หรือ top-[120px])er-r border-[#CCAADD]/50 sticky top-[120px] h-[calc(100vh-120px)] overflow-y-auto py-9";
+  const sidebarClass = drawer ? "w-full px-4 py-6" : "py-0"; //                                                                      ^^^^ ปรับตาม navbar จริง (TopBar 40px + Navbar 80px = 120px หรือ top-[120px])er-r border-[#CCAADD]/50 sticky top-[120px] h-[calc(100vh-120px)] overflow-y-auto py-9";
 
   return (
     <aside className={sidebarClass}>
@@ -123,7 +123,7 @@ export default function FilterSidebar({
           onToggle={() => toggle("cup")}
         />
         {openSections.cup && (
-          <div className="flex flex-wrap gap-1.5">
+          <div className="grid grid-cols-5 gap-1.5">
             {CUP_SIZES.map((s) => (
               <button
                 key={s}
@@ -154,7 +154,7 @@ export default function FilterSidebar({
           onToggle={() => toggle("band")}
         />
         {openSections.band && (
-          <div className="flex flex-wrap gap-1.5">
+          <div className="grid grid-cols-5 gap-1.5">
             {BAND_SIZES.map((s) => (
               <button
                 key={s}
@@ -235,7 +235,7 @@ export default function FilterSidebar({
           onToggle={() => toggle("color")}
         />
         {openSections.color && (
-          <div className="flex flex-wrap gap-2">
+          <div className="grid grid-cols-5 gap-2">
             {COLOR_FILTERS.map(({ hex, name }) => {
               const active = filters.colors.includes(hex);
               return (

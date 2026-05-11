@@ -79,7 +79,7 @@ export default function ProductCard({ product }: ProductCardProps) {
       </div>
 
       {/* Card */}
-      <div>
+      <div className="flex flex-col h-[100px] sm:h-[112px]">
         <div className="flex items-center gap-1 sm:gap-1.5 mb-1.5 sm:mb-2">
           {visibleColors.map((c, i) => (
             <button
@@ -108,26 +108,30 @@ export default function ProductCard({ product }: ProductCardProps) {
           {product.brand}
         </p>
 
-        <p className="text-[12px] sm:text-[14px] font-medium leading-[1.4] mb-1 sm:mb-1.5 line-clamp-2">
+        <p className="text-[12px] sm:text-[14px] font-medium leading-[1.4] line-clamp-2">
           {product.name}
         </p>
 
-        {/* Price */}
-        <div className="flex items-center gap-1 sm:gap-1.5">
-          {product.salePrice ? (
-            <>
-              <span className="text-[12px] sm:text-[14px] font-medium text-red-600">
-                {product.salePrice} ฿
-              </span>
-              <span className="text-[11px] sm:text-[13px] line-through">
+        <div className="mt-auto flex items-center justify-between pt-3">
+          <div className="flex items-center gap-1 sm:gap-1.5">
+            {product.salePrice ? (
+              <>
+                <span className="text-[12px] sm:text-[14px] font-medium text-red-600">
+                  {product.salePrice} ฿
+                </span>
+                <span className="text-[11px] sm:text-[13px] line-through text-[#888]">
+                  {product.price} ฿
+                </span>
+              </>
+            ) : (
+              <span className="text-[12px] sm:text-[14px]">
                 {product.price} ฿
               </span>
-            </>
-          ) : (
-            <span className="text-[12px] sm:text-[14px]">
-              {product.price} ฿
-            </span>
-          )}
+            )}
+          </div>
+          <span className="text-[9px] sm:text-[11px] bg-gray-100 text-gray-500 rounded px-1.5 py-0.5">
+            {product.collection}
+          </span>
         </div>
       </div>
     </div>

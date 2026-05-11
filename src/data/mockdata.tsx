@@ -10,13 +10,18 @@ export interface Product {
   tint: string;
   colors: { hex: string; name: string }[];
   img: string;
+
 }
 
 export interface RecentProduct {
   id: number;
   name: string;
+  brand: string;
   price: number;
+  salePrice?: number;
   tint: string;
+  img: string;
+  collection: typeof COLLECTIONS[number]['name'] | null;
 }
 
 export const PRODUCTS: Product[] = [
@@ -25,8 +30,7 @@ export const PRODUCTS: Product[] = [
     name: 'Sabina x Momorei กางเกงขายาว',
     brand: 'SABINA',
     price: 990,
-    // salePrice: 792,
-    collection: null,
+    collection: "Special Collection",
     tint: '#EDE0D4',
     colors: [
       { hex: '#eb5858', name: 'Rose' },
@@ -40,7 +44,7 @@ export const PRODUCTS: Product[] = [
     name: 'เสื้อกล้าม',
     brand: 'SABINA',
     price: 790,
-    collection: null,
+    collection: 'Bra Tops',
     tint: '#E8DDD5',
     colors: [
       { hex: '#94b3cd', name: 'Dusty Blue' },
@@ -57,7 +61,7 @@ export const PRODUCTS: Product[] = [
     price: 1390,
     salePrice: 1112,
     discount: 20,
-    collection: 'Special Collection',
+    collection: 'Sleepwear',
     tint: '#E0D5CE',
     colors: [
       { hex: '#EEDFCC', name: 'Cream' },
@@ -72,7 +76,7 @@ export const PRODUCTS: Product[] = [
     price: 1190,
     salePrice: 952,
     discount: 20,
-    collection: null,
+    collection: 'Sleepwear',
     tint: '#EAE0D8',
     colors: [
       { hex: '#1C1C1C', name: 'Onyx' },
@@ -133,7 +137,7 @@ export const PRODUCTS: Product[] = [
     price: 2390,
     salePrice:550,
     discount: 77,
-    collection: null,
+    collection: 'Special Collection',
     tint: '#E3D9D2',
     colors: [
       { hex: '#F5EDE4', name: 'Ivory' },
@@ -142,25 +146,24 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: 9,
-    name: 'Sabina x Aprilpoolday เดรส Lana',
+    name: 'SABINA | Care Bears บอดี้สูท',
     brand: 'SABINA',
-    price: 2390,
-    salePrice:550,
-    discount: 77,
-    collection: null,
+    price: 1590,
+    salePrice:450,
+    discount: 72,
+    collection: 'Special Collection',
     tint: '#E3D9D2',
     colors: [
       { hex: '#F5EDE4', name: 'Ivory' },
     ],
-    img: '/img/april-poolday.jpg',
+    img: '/img/carebears.jpg',
   },
 ]
 
 export const RECENT_PRODUCTS: RecentProduct[] = [
-  { id: 101, name: 'Sabina x Momorei กางเกงขายาว', price: 990, tint: '#E8DDD5' },
-  { id: 102, name: 'เสื้อกล้าม', price: 790, tint: '#E6DBD3' },
-  { id: 103, name: 'เซ็ตชุดนอน เสื้อแขนสั้น กางเกงขาสั้น', price: 1112, tint: '#EDE0D4' },
-  { id: 104, name: 'เซ็ตชุดนอน เสื้อแขนสั้น กางเกงขาสั้น UNISEX', price: 952, tint: '#E0D5CE' },
+  { id: 101, name: 'Sabina x Momorei กางเกงขายาว', brand: 'SABINA', price: 990, tint: '#E8DDD5', img: '/img/sabina-momorei1.jpg', collection: 'Special Collection' },
+  { id: 102, name: 'เสื้อกล้าม', brand: 'SABINA', price: 790, tint: '#E6DBD3', img: '/img/sabina-tanktop.jpg', collection: 'Bra Tops' },
+  { id: 103, name: 'เซ็ตชุดนอน เสื้อแขนสั้น กางเกงขาสั้น', brand: 'SABINA', price: 1112, salePrice: 1390, tint: '#EDE0D4', img: '/img/sabina-pajamas.jpg', collection: 'Sleepwear' },
 ]
 
 export const CUP_SIZES = ['AA', 'A', 'B', 'C', 'D', 'DD', 'E', 'F', 'G']
@@ -172,7 +175,6 @@ export const STYLES = [
   { label: 'บอดี้สูท', count: 6 },
   { label: 'กางเกง/กระโปรง', count: 12 },
   { label: 'ชุดนอน', count: 9 },
-
 ]
 
 export const COLOR_FILTERS = [
@@ -194,6 +196,12 @@ export const COLLECTIONS = [
   },
   {
     name: 'Mad Moiselle',
+  },
+  {
+    name: 'Bra Tops',
+  },
+  {
+    name: 'Sleepwear',
   },
 
 ]
