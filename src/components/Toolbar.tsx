@@ -54,10 +54,6 @@ export default function Toolbar({
 
           <div className="hidden lg:block" />
 
-          <span className="lg:hidden text-[12px] tracking-[0.04em] text-neutral-500">
-            {productCount} รายการ
-          </span>
-
           <div className="flex items-center gap-2" ref={wrapperRef}>
             <span className="text-[13px] font-medium tracking-[0.04em] hidden sm:block text-neutral-500">
               เรียงโดย

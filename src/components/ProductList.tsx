@@ -141,7 +141,7 @@ export default function ProductListingPage() {
               </button>
             )}
             {!hasMore && (
-              <p className="text-[12px] mt-1">You&apos;ve seen it all</p>
+              <p className="text-[12px] mt-1">แสดงรายการทั้งหมดแล้ว</p>
             )}
           </div>
         </div>
